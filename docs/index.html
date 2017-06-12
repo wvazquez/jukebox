@@ -26,12 +26,10 @@
               <!-- ==================================
                 Search For songs
               ========================================-->
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search albums, songs, or artists">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-              </form>
+              <div class="navbar-form navbar-left">
+                <input type="text" class="form-control searchbox" placeholder="Search albums, songs, or artists">
+                <button class="btn btn-default search" type="button" name="button" data-toggle="modal" data-target="#myModal">Search</button>
+              </div>
               <!-- ==================================
                 End Search
               ========================================-->
@@ -49,6 +47,58 @@
         </nav>
       </div> <!--container-->
     </div><!--navbar-wrapper-->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <!-- ==================================
+              Search For songs
+            ========================================-->
+            <div class="navbar-form">
+              <h4 class="modal-title text-center" id="myModalLabel">JukeBox Player</h4>
+              <div class="modal-form">
+                <input type="text" class="form-control searchbox" placeholder="Search albums, songs, or artists">
+                <button class="btn btn-default search" type="button" name="button">Search</button>
+              </div>
+
+            </div>
+            <!-- ==================================
+              End Search
+            ========================================-->
+          </div>
+          <div class="modal-body">
+            <!-- ==================================
+              Jukebox Player
+            ========================================-->
+
+            <div class="jukebox-section current-song">
+              <audio id="song" controls>
+                <source src="" type="audio/mp3">
+              </audio>
+              <button id="play" type="button" name="play">Play</button>
+            </div>
+            <div class="jukebox-section playlist">
+              <ol id="list">
+                <!-- songs -->
+              </ol>
+
+            </div>
+
+            <!-- ==================================
+              End of Jukebox Player
+            ========================================-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Carousel
     ================================================== -->
