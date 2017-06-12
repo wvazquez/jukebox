@@ -47,7 +47,7 @@ function setTrack(song_id, listItem){
         $('#song source').attr('src', "https://files.freemusicarchive.org/" + track.track_file);
         $('#song').load();
         if(track.track_image_file === ""){
-          $('.cover-image').attr('src', "../images/headphones1.jpg");
+          $('.cover-image').attr('src', "images/headphones1.jpg");
         }else{
           $('.cover-image').attr('src', track.track_image_file);
         }
@@ -59,6 +59,11 @@ function setTrack(song_id, listItem){
       }
   });
 }
+
+
+
+
+
 
 function Jukebox(){
   this.play = function(){
