@@ -1,7 +1,8 @@
+var searchresults;
 $(".search").on('click', function(){
   if($(".searchbox").val().trim().length === 0){ return; }
   $('.search').attr('data-target', "#myModal");
-  searchTrack($(".searchbox").val());
+  searchresults = searchTrack($(".searchbox").val());
 
 });
 
@@ -21,12 +22,12 @@ function searchTrack(name){
     },
     dataType: 'json',
     success: function(response) {
-        console.log(response);
         result = response.aRows;
         $('#list li').replaceWith('');
         for(var i=0; i< result.length; i++){
-          $('#list').append("<li><a class ='the_song' href='#'>" + result[i]+ "</a></li>");
+          $('#list').append("<li><a class='the_song' href='#'>" + result[i]+ "</a></li>");
         }
+        return result;
     },
     error: function(err) {
         console.error( err );
@@ -59,11 +60,6 @@ function setTrack(song_id, listItem){
       }
   });
 }
-
-
-
-
-
 
 function Jukebox(){
   this.play = function(){
