@@ -26,6 +26,18 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// live reload setup only on development
+var env = process.env.NODE_ENV || 'development';
+if(env == 'development'){
+  const livereloadMiddleware = require("connect-livereload");
+  var livereload = require('livereload').createServer({
+    exts: ['js','scss', 'hbs']
+  });
+  livereload.watch(path.join(__dirname));
+  app.use(livereloadMiddleware());
+}
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
