@@ -1,0 +1,21 @@
+.jumbotron-container,
+.carousel-item img{
+  height: 90vh;
+}
+.carousel,
+.carousel-item,
+.carousel-inner,
+.carousel-caption {
+  height: 100%;
+}
+.carousel-container{
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+.carousel-caption{
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
