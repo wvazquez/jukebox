@@ -1,190 +1,21 @@
 <!-- Navigation
     ================================================== -->
-    {{> Navigation}}
+    {{> Navigation }}
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
+    {{> Modal }}
 
-            <!-- ==================================
-              Search For songs
-            ========================================-->
-            <div class="navbar-form">
-              <h4 class="modal-title text-center" id="myModalLabel">JukeBox Player</h4>
-              <div class="modal-form">
-                <input type="text" class="form-control searchbox" placeholder="Search albums, songs, or artists">
-                <button class="btn btn-default search" type="button" name="button">Search</button>
-              </div>
+    {{> Jumbotron }}
 
-            </div>
-            <!-- ==================================
-              End Search
-            ========================================-->
-          </div>
-          <div class="modal-body">
-            <!-- ==================================
-              Jukebox Player
-            ========================================-->
-
-            <div class="jukebox-section current-song">
-              <img src="images/headphones1.jpg" class ="cover-image" alt="Track Cover Image">
-
-              <audio id="song">
-                <source src="" type="audio/mp3">
-              </audio>
-              <div class="text-center">
-                <div class="btn-group" role="group" aria-label="jukebox-controls">
-                  <!-- <button id="previous" type="button" class="btn btn-info">Previous</button> -->
-                  <button id="play" type="button" class="btn btn-info">Play</button>
-                  <button id="pause" type="button" class="btn btn-info">Pause</button>
-                  <!-- <button id="next" type="button" class="btn btn-info">Next</button> -->
-                </div>
-              </div>
-
-            </div>
-            <hr>
-            <div class="jukebox-section playlist">
-
-              <ol id="list">
-                <!-- songs -->
-              </ol>
-
-            </div>
-
-            <!-- ==================================
-              End of Jukebox Player
-            ========================================-->
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="images/concert/concert2.jpg" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>JukeBox</h1>
-              <p>Listen to new music, artists and playlists. Comepletely Free</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="second-slide" src="images/concert/concert4.jpg" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>JukeBox</h1>
-              <p>Listen to these new playlists</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse Playlists</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="third-slide" src="images/concert/concert7.jpg" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>JukeBox</h1>
-              <p>Find trendiest new artists.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse Artists</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
-
-    <!-- Featured Playlists
-    ================================================== -->
 
     <div class="container marketing">
-      <h2 class="section-heading text-center">Featured <span class="text-muted">Playlists.</span></h2>
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Relax your mind.  <span class="text-muted">Relax your soul.</span></h2>
-          <p class="lead">Listen to our featured playlist perfectly curated for a night of relaxation. Relax, chill out music perfect to soften the mood. Donec ullamcorper nulla non metus auctor fringilla.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="images/concert/concert5.jpg" alt="Relax Playlist Cover Image">
-        </div>
-      </div>
+    {{> featured/Playlists}}
 
       <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Experience the concert.  <span class="text-muted">Relive the moment.</span></h2>
-          <p class="lead">Listen to our featured playlist showcasing the most popular concerts, live. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. </p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" src="images/concert/concert3.jpg" alt="Concert Playlist Cover Image">
-        </div>
-      </div>
+      {{> featured/Artists}}
 
       <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Summer vibes.  <span class="text-muted">Top one-hundred songs.</span></h2>
-          <p class="lead">Listen to our featured playlist of the top 40 songs of the summer. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="images/concert/concert11.jpg" alt="Summer Vibes Playlist Cover Image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- Featured Artists
-      ================================================== -->
-      <h2 class="text-center section-heading">Featured <span class="text-muted">Artists.</span></h2>
-      <div class="row">
-
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/singers/singer1.jpg" alt="Miah Wonders" width="150" height="150">
-          <h2>Miah Wonder</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View songs &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/singers/singer2.jpg" alt="Jason Hue" width="150" height="150">
-          <h2>Jason Hue</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View songs &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/singers/singer4.jpg" alt="Karla B." width="150" height="150">
-          <h2>Karla B.</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View songs &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-      <hr class="featurette-divider">
-      <!-- /END THE FEATURETTES -->
-
-
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>

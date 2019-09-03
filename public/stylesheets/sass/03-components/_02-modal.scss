@@ -1,0 +1,26 @@
+.modal-header{
+    background-color: rgb(85, 120, 173);
+  }
+  .modal-form{
+    float: right;
+  
+  }
+  .modal-title{
+    color: white;
+    display: inline-block;
+  }
+  .modal-body{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .current-song img{
+    width: 100%;
+    max-height: 400px;
+  }
+  .current-song h4{
+    text-align: center;
+  }
+  .btn-group{
+    margin-top: 5px;
+  }
