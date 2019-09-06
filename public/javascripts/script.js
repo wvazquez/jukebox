@@ -1,10 +1,22 @@
 var searchresults;
-$(".search").on('click', function(){
-  if($(".searchbox").val().trim().length === 0){ return; }
-  $('.search').attr('data-target', "#myModal");
-  searchresults = searchTrack($(".searchbox").val());
 
+$( document ).ready(function() {
+  $(".searchSubmit").on('click', function(event){
+    event.preventDefault();
+    // if($(".searchbox").val().trim().length === 0){ 
+    //   return; 
+    // }
+    // alert("works");
+    $.ajax({
+      type: "GET",
+      url: '/spotify/search',
+      data: {
+        // q: "queen"
+      }
+    });
+  });
 });
+
 
 $("#list").on('click', 'a', function(){
   var song = $(this).text().split(' ').pop();
