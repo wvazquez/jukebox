@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const SpotifyRoutes = require('./Spotify');
+const SearchRoutes = require('./Search');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,6 +11,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.use('/spotify', SpotifyRoutes);
-
+router.use('/search', SearchRoutes);
 
 module.exports = router;
