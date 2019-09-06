@@ -1,20 +1,20 @@
 var searchresults;
 
 $( document ).ready(function() {
-  $(".searchSubmit").on('click', function(event){
-    event.preventDefault();
+  // $(".searchSubmit").on('click', function(event){
+    // event.preventDefault();
     // if($(".searchbox").val().trim().length === 0){ 
     //   return; 
     // }
     // alert("works");
-    $.ajax({
-      type: "GET",
-      url: '/spotify/search',
-      data: {
+    // $.ajax({
+    //   type: "GET",
+    //   url: '/search',
+    //   data: {
         // q: "queen"
-      }
-    });
-  });
+  //     }
+  //   });
+  // });
 });
 
 

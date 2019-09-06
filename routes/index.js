@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { development: dev });
 });
 
-router.use('/spotify', SpotifyRoutes);
-router.use('/search', SearchRoutes);
+// router.use('/spotify', SpotifyRoutes);
+router.use('/search', SpotifyRoutes);
 
 module.exports = router;

@@ -16,30 +16,43 @@ function getToken(){
           grant_type: 'client_credentials',
         }      
     })
-    // .then(function(response){
-    //        return response.data;
-    // }).catch(function (error) {
-    //     console.log("Error receiving Spotify Token: ", error);
-    //   });
 }
 
-router.get('/search', (req,res)=>{
+router.get('/', (req,res)=>{
         getToken().then(function(response){
             const token_type  = response.data.token_type;
             const access_token = response.data.access_token;
             axios({
                 method: 'GET',
-                url: "https://api.spotify.com/v1/browse/featured-playlists",
+                url: "https://api.spotify.com/v1/search",
                 headers: {
                     'Authorization': `${token_type} ${access_token}`,
-                }
+                },
+                params: {
+                    type: "artist,album,track",
+                    q: "malo",
+                    limit: 3
+                },
+                // data: {
+                //     search: 'malo'
+                // }
+                
             }).then(function(response){
-                console.log(response.data);
+                console.log(response);
+                return res.render('search',{
+                    search: response.config.params.q,
+                    tracks: response.data.tracks.items,
+                    artists:  response.data.artists.items,
+                    albums: response.data.albums.items
+                });
             }).catch(function (error) {
-            console.log(error);
+            console.log("Search error: ", error);
           });
+        }).catch(function (error) {
+            console.log("Token error: ", error);
         });
+        // res.render('search');
         
 });
 
-module.exports = {router,getToken};
+module.exports = router;
