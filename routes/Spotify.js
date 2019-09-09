@@ -18,7 +18,61 @@ function getToken(){
     })
 }
 
-router.get('/', (req,res)=>{
+function filterSearch(data){
+    //pass data object, 
+    //filter top songs,artists, or album
+        //filter top song
+            //filter through popularity
+
+        //removes results with no images
+        // data.forEach(type => {
+        //     type.items.filter(element => {
+        //         if(element.img){
+        //             return element;
+        //         }  
+        //     })
+        //     console.log('This is the filered data', type.items);
+        // });
+        // console.log('This is the filered data', data);
+        console.log(data);
+        // var newdata = data.artists.items.forEach(element => {
+        var newdata = data.artists.items.filter(element => element.images.length > 0);
+    
+        
+        
+        
+        console.log("this is the new data",newdata)
+}
+function filterImages(data){
+    var filteredData = {};
+
+    Object.keys(data).forEach(type => {
+      console.log(type);
+        if(type === 'tracks'){
+            filteredData[type] = data.tracks.items.filter(element => {
+              if(element.album.images.length > 0){
+                return element;
+              }
+            });
+        }else if(type === 'artists'){
+            filteredData[type] = data.artists.items.filter(element => {
+              if(element.images.length > 0){
+                return element;
+              }
+            });
+        }else{
+            filteredData[type] = data.albums.items.filter(element => {
+              if(element.images.length > 0){
+                return element;
+              }
+            });
+        }
+    });
+    return filteredData;
+}
+
+
+router.post('/', (req,res)=>{
         getToken().then(function(response){
             const token_type  = response.data.token_type;
             const access_token = response.data.access_token;
@@ -30,20 +84,18 @@ router.get('/', (req,res)=>{
                 },
                 params: {
                     type: "artist,album,track",
-                    q: "malo",
-                    limit: 3
+                    q: req.body.search,
                 },
-                // data: {
-                //     search: 'malo'
-                // }
-                
             }).then(function(response){
-                console.log(response);
+                // console.log(response);
+                // filterImages(response.data)
+                // console.log(filterImages(response.data));
+                const data = filterImages(response.data);
                 return res.render('search',{
                     search: response.config.params.q,
-                    tracks: response.data.tracks.items,
-                    artists:  response.data.artists.items,
-                    albums: response.data.albums.items
+                    tracks: data.tracks,
+                    artists:  data.artists,
+                    albums: data.albums
                 });
             }).catch(function (error) {
             console.log("Search error: ", error);

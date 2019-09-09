@@ -4,7 +4,7 @@
     <div class="search-category song-container">
         <p>Songs: </p>
         <div class="card-deck ">
-            {{#each tracks}}
+            {{#each_upto tracks 3}}
             <div class="card col-sm-4">
                 <img src="{{album.images.[0].url}}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -15,13 +15,13 @@
                     <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
             </div>
-            {{/each}}
+            {{/each_upto}}
         </div>
     </div>
     <div class="search-category artist-container">
         <p>Artist: </p>
         <div class="card-deck">
-            {{#each artists}}
+            {{#each_upto artists 3}}
             <div class="card col-sm-4">
                 <img src="{{images.[0].url}}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -32,14 +32,14 @@
                     <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
             </div>
-            {{/each}}
+            {{/each_upto}}
         </div>
     </div>
 
     <div class="search-category playlist-container">
         <p>Albums: </p>
         <div class="card-deck">
-            {{#each albums}}
+            {{#each_upto albums 3}}
             <div class="card col-sm-4">
                 <img src="{{images.[0].url}}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -50,7 +50,7 @@
                     <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
             </div>
-            {{/each}}
+            {{/each_upto}}
         </div>
     </div>
     
