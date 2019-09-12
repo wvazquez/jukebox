@@ -87,10 +87,8 @@ router.post('/', (req,res)=>{
                     q: req.body.search,
                 },
             }).then(function(response){
-                // console.log(response);
-                // filterImages(response.data)
-                // console.log(filterImages(response.data));
                 const data = filterImages(response.data);
+
                 return res.render('search',{
                     search: response.config.params.q,
                     tracks: data.tracks,
@@ -102,9 +100,15 @@ router.post('/', (req,res)=>{
           });
         }).catch(function (error) {
             console.log("Token error: ", error);
-        });
-        // res.render('search');
-        
+        });        
+});
+router.get('/1', (req,res)=>{
+  res.render('spotify', {
+    layout: 'spotifyplayer',
+    token: 
+      "BQCQkkO8RHMnQahwb9pzjr74nSqQFExyqpfnP-un69m8wYrGQBVXCQ4gfvYnIqcguqipy5wI4qhfPYJOKoM"
+    
+  });
 });
 
 module.exports = router;

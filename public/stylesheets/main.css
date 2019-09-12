@@ -133,4 +133,22 @@
   margin-top: 50px;
   margin-bottom: 50px; }
 
+img.card-img-top {
+  height: 200px; }
+
+.search-all {
+  display: none; }
+
+.card-deck {
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.search-all .card {
+  flex-basis: auto !important; }
+
+.song-container,
+.playlist-container,
+.album-container {
+  display: none; }
+
 /*# sourceMappingURL=main.css.map */
