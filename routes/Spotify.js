@@ -23,7 +23,6 @@ function filterImages(data){
     var filteredData = {};
     Object.keys(data).forEach(type => {
         if(type === 'tracks'){
-            console.log(data.tracks)
             filteredData[type] = data.tracks.items.filter(element => {
               if(element.album.images.length > 0){
                 return element;
@@ -83,6 +82,12 @@ router.get('/', (req,res)=>{
   });
 });
 
+router.get('/songs/:uri', (req,res)=>{	
+  res.render('spotify', {	
+    layout: 'spotifyplayer',	
+    uri: 	req.params.uri
+  });    	
+});
 
 
 module.exports = router;

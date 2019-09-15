@@ -1,0 +1,22 @@
+.spotify-avatar{
+    position: relative;
+    top: -125px;
+    img{
+        border: 8px solid white;
+    }
+
+
+}
+.spotify-container{
+    .card .card-body{
+        margin-top: -100px;
+    }
+}
+@media(min-width: $md){
+    .spotify-avatar{
+        img{
+            height: 200px;
+            width: 200px;
+        }
+    }
+}

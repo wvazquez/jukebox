@@ -4,7 +4,7 @@ $( document ).ready(function() {
 
   $('.view-all').on('click', function(event){
     toggleViewAll();
-    console.log(event);
+    // console.log(event);
     $('.view-all-title').text(event.target.name);
     if(event.target.name === "albums"){
       $('.album-container').toggle();
@@ -32,21 +32,3 @@ function toggleViewAll(){
   $('.search-all').toggle();
 }
 
-function Jukebox(){
-  this.play = function(){
-    song.play();
-  };
-  this.pause = function(){
-    song.pause();
-  };
-};
-
-var mySong = new Jukebox();
-var song = $('#song')[0];
-
-$('#play').on("click",function(){
-    song.play();
-});
-$('#pause').on("click",function(){
-    song.pause();
-});

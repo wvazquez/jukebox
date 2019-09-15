@@ -151,4 +151,18 @@ img.card-img-top {
 .album-container {
   display: none; }
 
+.spotify-avatar {
+  position: relative;
+  top: -125px; }
+  .spotify-avatar img {
+    border: 8px solid white; }
+
+.spotify-container .card .card-body {
+  margin-top: -100px; }
+
+@media (min-width: 768px) {
+  .spotify-avatar img {
+    height: 200px;
+    width: 200px; } }
+
 /*# sourceMappingURL=main.css.map */
