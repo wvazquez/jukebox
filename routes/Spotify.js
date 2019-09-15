@@ -14,7 +14,7 @@ function getToken(){
         },
         params: { 
           grant_type: 'client_credentials',
-        }      
+        }
     })
 }
 
@@ -34,20 +34,19 @@ function filterSearch(data){
         //     console.log('This is the filered data', type.items);
         // });
         // console.log('This is the filered data', data);
-        console.log(data);
+        // console.log(data);
         // var newdata = data.artists.items.forEach(element => {
         var newdata = data.artists.items.filter(element => element.images.length > 0);
     
         
         
         
-        console.log("this is the new data",newdata)
+        // console.log("this is the new data",newdata)
 }
 function filterImages(data){
     var filteredData = {};
-
     Object.keys(data).forEach(type => {
-      console.log(type);
+      // console.log(type);
         if(type === 'tracks'){
             filteredData[type] = data.tracks.items.filter(element => {
               if(element.album.images.length > 0){
@@ -72,7 +71,8 @@ function filterImages(data){
 }
 
 
-router.post('/', (req,res)=>{
+router.get('/', (req,res)=>{
+        console.log(req.query);
         getToken().then(function(response){
             const token_type  = response.data.token_type;
             const access_token = response.data.access_token;
@@ -84,13 +84,13 @@ router.post('/', (req,res)=>{
                 },
                 params: {
                     type: "artist,album,track",
-                    q: req.body.search,
+                    q: req.query.search,
                 },
             }).then(function(response){
                 const data = filterImages(response.data);
 
                 return res.render('search',{
-                    search: response.config.params.q,
+                    search: req.query.search,
                     tracks: data.tracks,
                     artists:  data.artists,
                     albums: data.albums
@@ -102,12 +102,11 @@ router.post('/', (req,res)=>{
             console.log("Token error: ", error);
         });        
 });
-router.get('/1', (req,res)=>{
+router.get('/:songID', (req,res)=>{
   res.render('spotify', {
     layout: 'spotifyplayer',
     token: 
       "BQCQkkO8RHMnQahwb9pzjr74nSqQFExyqpfnP-un69m8wYrGQBVXCQ4gfvYnIqcguqipy5wI4qhfPYJOKoM"
-    
   });
 });
 
