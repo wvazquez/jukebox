@@ -146,7 +146,7 @@ img.card-img-top {
 .search-all .card {
   flex-basis: auto !important; }
 
-.song-container,
+.track-container,
 .playlist-container,
 .album-container {
   display: none; }

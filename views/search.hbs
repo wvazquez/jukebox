@@ -2,10 +2,10 @@
 <div class="container search-results">
     <h3> Showing results for: {{search}} </h3>
     <div class="search-category">
-        <button name='songs' class="view-all">View All Songs </button>
+        <button name='tracks' class="view-all">View All Songs </button>
         <div class="card-deck ">
             {{#each_upto tracks 4}}
-            <a class="card col-sm-3" song="{{uri}}" href="/search/songs/{{uri}}">
+            <a class="card col-sm-3" track="{{id}}" href="/search/tracks/{{id}}">
                 <img src="{{album.images.[0].url}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 class="card-title">{{name}}</h4>
@@ -63,7 +63,7 @@
     <button class="search-return">RETURN</button>
     <div class="card-deck">
             {{#each tracks}}
-            <div class="card col-sm-2 song-container">
+            <div class="card col-sm-2 track-container">
                 <img src="{{album.images.[0].url}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{name}}</h5>
