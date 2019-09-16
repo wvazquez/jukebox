@@ -13,29 +13,29 @@
 <body>
   <h1>Web Player</h1>
 
-<div class="container spotify-container" trackID="{{trackID}}">
+<div class="container spotify-container" trackID="{{data.trackID}}">
 
 <!-- Card -->
 <div class="card col-sm-5">
   <!-- Card image -->
   <div class="view overlay">
-    <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+    <img class="card-img-top" src="{{data.albumImage}}" alt="Card image cap">
     <a href="#!">
       <div class="mask rgba-white-slight"></div>
     </a>
   </div>
   <!-- Avatar -->
   <div class="mx-auto spotify-avatar">
-    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle" alt="woman avatar">
+    <img src="{{data.artistImage}}" class="rounded-circle" alt="woman avatar">
   </div>
 
   <!-- Card content -->
   <div class="card-body">
 
     <!-- Title -->
-    <h4 class="card-title">Card title</h4>
+    <h4 class="card-title">{{data.songName}}</h4>
     <!-- Text -->
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">{{data.artistName}}</p>
     <!-- Button -->
     <div class="btn-group" role="group" aria-label="Basic example">
     <button type="button" class="btn purple-gradient btn-rounded">Left</button>
